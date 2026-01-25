@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>KekkoTech Gaming - Sito in costruzione</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logoshort.png">
+
+    <style>
+        :root {
+            --primary-red: #c40000;
+            --text-black: #000000;
+            --bg-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-black);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .logo {
+            max-width: 320px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--primary-red);
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        footer a {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="img/logolong.png" alt="KekkoTech Gaming Logo" class="logo">
+
+        <h1>Sito in costruzione</h1>
+        <p>
+            KekkoTech Gaming sta arrivando.<br>
+            Stiamo lavorando per offrirti qualcosa di davvero interessante.
+        </p>
+    </div>
+
+    <footer>
+        &copy; <span id="year"></span> KekkoTech Gaming · 
+        <a href="mailto:support@kekkotech.it">support@kekkotech.it</a>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
