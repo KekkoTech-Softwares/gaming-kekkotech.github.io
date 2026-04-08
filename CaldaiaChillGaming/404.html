@@ -2,17 +2,19 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>KekkoTech Gaming - 404</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
+    <title>404 - Caldaia Chill Gaming - KTG</title>
+    
     <link rel="icon" type="image/png" href="img/logoshort.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --primary-red: #c40000;
-            --text-black: #000000;
-            --bg-white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
         }
 
         * {
@@ -23,66 +25,172 @@
         }
 
         body {
-            background-color: var(--bg-white);
-            color: var(--text-black);
+            background-color: #0b0b12; /* Sfondo scuro in linea con la index */
+            color: var(--text-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .container {
-            max-width: 600px;
+        /* --- SFONDO LIQUIDO ANIMATO --- */
+        .blob-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            filter: blur(80px);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 20s infinite alternate ease-in-out;
+            opacity: 0.5;
+        }
+
+        .blob-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-red);
+            top: -10%;
+            left: -10%;
+        }
+
+        .blob-2 {
+            width: 350px;
+            height: 350px;
+            background: #ff4d4d;
+            bottom: 10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: #660000;
+            bottom: -20%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 50px) scale(1.2); }
+            100% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        /* --- EFFETTO GLASSMORPHISM --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            max-width: 600px; 
+            width: 90%;
+            margin: 40px auto;
+            text-align: center;
+            z-index: 1;
         }
 
         .logo {
-            max-width: 320px;
+            max-width: 280px;
             width: 100%;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
         }
 
         h1 {
-            color: var(--primary-red);
             font-size: 2.4rem;
             margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            color: #ff4d4d; /* Risalta l'errore */
         }
 
         p {
             font-size: 1.1rem;
             line-height: 1.6;
+            margin-bottom: 30px;
+            color: #dcdcdc;
         }
 
+        /* --- PULSANTE HOME --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            background-color: var(--primary-red);
+            box-shadow: 0 4px 15px rgba(196, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- FOOTER --- */
         footer {
             margin-top: auto;
-            padding-top: 40px;
+            padding: 20px;
             font-size: 0.9rem;
-            color: #444;
+            color: #aaaaaa;
+            text-align: center;
+            width: 100%;
+            z-index: 1;
         }
 
         footer a {
-            color: var(--primary-red);
+            color: #ff4d4d;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="img/logolong.png" alt="KekkoTech Gaming Logo" class="logo">
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="glass-panel">
+        <img src="img/logolong.png" alt="KekkoTech Gaming Logo" class="logo" onerror="this.style.display='none'">
 
         <h1>404 - Pagina non trovata</h1>
         <p>
-            La pagina che stai cercando non esiste.<br>
-            Torna alla home page per continuare.
+            La pagina che stai cercando non esiste o è stata spostata.<br>
+            Nessun problema, puoi tornare alla base!
         </p>
+
+        <a href="index.html" class="btn">
+            <i class="fa-solid fa-house"></i> Torna indietro
+        </a>
     </div>
 
     <footer>
@@ -91,7 +199,10 @@
     </footer>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        const startYear = 2020;
+        const currentYear = new Date().getFullYear();
+        const yearString = currentYear > startYear ? `${currentYear}` : `${startYear}`;
+        document.getElementById("year").textContent = yearString;
     </script>
 
 </body>
